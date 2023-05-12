@@ -25,8 +25,42 @@ else{
 
     if (isNaN(età)){
         console.log("Questo non è un numero");
+        document.getElementById('eta').innerHTML = "Mi dispiace non ha inserito un numero, ricaricare la pagina";
     }
     else{    
     console.log("Età del passeggero: "+ età);
+    document.getElementById('eta').innerHTML += età;
+        
+    /*va applicato uno sconto del 20% per i minorenni*/
+    let prezzobiglietto = 1;
+    let sconto;
+    prezzobiglietto = prezzobiglietto * numerokm;
+    console.log("In base hai chiloetri il prezzo del biglietto è di: " + prezzobiglietto);    
+
+    if(età < 18){
+        console.log("Il passeggiero è minorenne");
+        console.log("Ha uno sconto del 20%");
+        sconto = (20 / 100) * prezzobiglietto; 
+        prezzobiglietto = prezzobiglietto - sconto;
+        console.log("Il prezzo del biglietto è: " + prezzobiglietto + "€");
+    }
+    else{
+
+        /*va applicato uno sconto del 40% per gli over 65.*/
+        console.log("Il passeggero è maggiorenne");
+        console.log("Il passeggero paga la tariffa normale");
+        if (età > 65){
+            console.log("Ma se è over 65 ha il prezzo scontato del 40%");
+            sconto = (40 / 100) * prezzobiglietto; 
+            prezzobiglietto = prezzobiglietto - sconto;
+            console.log("Il prezzo del biglietto è: " + prezzobiglietto +"€");
+        }
+    }
+
+
+
     }
 }
+
+
+
