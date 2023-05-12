@@ -1,5 +1,4 @@
-/**
-//todo: 
+/*
 Il programma dovrà chiedere all'utente 
 il numero di chilometri che vuole percorrere e l'età 
 del passeggero.
@@ -11,6 +10,11 @@ va applicato uno sconto del 20% per i minorenni
 va applicato uno sconto del 40% per gli over 65.
 */
 
+const nome = (prompt("Benvenuto nel Polar Express, inserisci il tuo nome: "));
+console.log("Il nome del passeggiero è: " + nome);
+document.getElementById('name').innerHTML += nome;
+
+// TODO: il numero di chilometri che vuole percorrere /
 const numerokm = parseInt(prompt("Inserisci il numero di kilomentri che devi fare: "));
 
 if (isNaN(numerokm)){
@@ -21,6 +25,7 @@ else{
     console.log("Il passeggero deve fare: "+ numerokm + "km");
     document.getElementById('kilometri').innerHTML += numerokm + "km";
 
+    //todo: l'età del passeggero /
     const età = parseInt(prompt("Inserisci la tua età: "));
 
     if (isNaN(età)){
@@ -28,37 +33,39 @@ else{
         document.getElementById('eta').innerHTML = "Mi dispiace non ha inserito un numero, ricaricare la pagina";
     }
     else{    
-    console.log("Età del passeggero: "+ età);
-    document.getElementById('eta').innerHTML += età;
-        
-    /*va applicato uno sconto del 20% per i minorenni*/
-    let prezzobiglietto = 1;
-    let sconto;
-    prezzobiglietto = prezzobiglietto * numerokm;
-    console.log("In base hai chiloetri il prezzo del biglietto è di: " + prezzobiglietto);    
+        console.log("Età del passeggero: "+ età);
+        document.getElementById('eta').innerHTML += età;
+            
+        // todo: va applicato uno sconto del 20% per i minorenni*/
+        let prezzobiglietto = 1;
+        let sconto;
+        prezzobiglietto = prezzobiglietto * numerokm;
+        console.log("In base hai chiloetri il prezzo del biglietto è di: " + prezzobiglietto +"€");
 
-    if(età < 18){
-        console.log("Il passeggiero è minorenne");
-        console.log("Ha uno sconto del 20%");
-        sconto = (20 / 100) * prezzobiglietto; 
-        prezzobiglietto = prezzobiglietto - sconto;
-        console.log("Il prezzo del biglietto è: " + prezzobiglietto + "€");
-    }
-    else{
-
-        /*va applicato uno sconto del 40% per gli over 65.*/
-        console.log("Il passeggero è maggiorenne");
-        console.log("Il passeggero paga la tariffa normale");
-        if (età > 65){
-            console.log("Ma se è over 65 ha il prezzo scontato del 40%");
-            sconto = (40 / 100) * prezzobiglietto; 
+        if(età < 18){
+            console.log("Il passeggiero è minorenne");
+            console.log("Ha uno sconto del 20%");
+            sconto = (20 / 100) * prezzobiglietto; 
             prezzobiglietto = prezzobiglietto - sconto;
-            console.log("Il prezzo del biglietto è: " + prezzobiglietto +"€");
+            console.log("Il prezzo del biglietto è: " + prezzobiglietto + "€");
+            document.getElementById('prezzo').innerHTML += prezzobiglietto + "€";
         }
-    }
+        else{
 
-
-
+            // todo: va applicato uno sconto del 40% per gli over 65.*/
+            console.log("Il passeggero è maggiorenne");
+            if (età > 65){
+                console.log("Ma se è over 65 ha il prezzo scontato del 40%");
+                sconto = (40 / 100) * prezzobiglietto; 
+                prezzobiglietto = prezzobiglietto - sconto;
+                console.log("Il prezzo del biglietto è: " + prezzobiglietto +"€");
+                document.getElementById('prezzo').innerHTML += prezzobiglietto + "€";
+            }
+            else{
+                console.log("Il passeggero paga la tariffa normale di: " + prezzobiglietto);
+                document.getElementById('prezzo').innerHTML += prezzobiglietto + "€";
+            }
+        }
     }
 }
 
