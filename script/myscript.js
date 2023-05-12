@@ -14,8 +14,10 @@ const nome = (prompt("Benvenuto nel Polar Express, inserisci il tuo nome: "));
 console.log("Il nome del passeggiero è: " + nome);
 document.getElementById('name').innerHTML += nome;
 
-// TODO: il numero di chilometri che vuole percorrere /
 const numerokm = parseInt(prompt("Inserisci il numero di kilomentri che devi fare: "));
+let prezzobiglietto = 0.21;
+
+// TODO: il numero di chilometri che vuole percorrere /
 
 if (isNaN(numerokm)){
     console.log("Questo non è un numero");
@@ -37,7 +39,6 @@ else{
         document.getElementById('eta').innerHTML += età;
         
         //*Prezzo biglietto al km */
-        let prezzobiglietto = 0.21;
         let sconto;
         prezzobiglietto = prezzobiglietto * numerokm;
         console.log("In base hai chilometri il prezzo del biglietto è di: " + prezzobiglietto +"€");
