@@ -35,34 +35,50 @@ else{
     else{    
         console.log("Età del passeggero: "+ età);
         document.getElementById('eta').innerHTML += età;
-            
-        // todo: va applicato uno sconto del 20% per i minorenni*/
-        let prezzobiglietto = 1;
+        
+        //*Prezzo biglietto al km */
+        let prezzobiglietto = 0.21;
         let sconto;
         prezzobiglietto = prezzobiglietto * numerokm;
-        console.log("In base hai chiloetri il prezzo del biglietto è di: " + prezzobiglietto +"€");
+        console.log("In base hai chilometri il prezzo del biglietto è di: " + prezzobiglietto +"€");
 
+        // todo: va applicato uno sconto del 20% per i minorenni*/
         if(età < 18){
             console.log("Il passeggiero è minorenne");
             console.log("Ha uno sconto del 20%");
             sconto = (20 / 100) * prezzobiglietto; 
             prezzobiglietto = prezzobiglietto - sconto;
             console.log("Il prezzo del biglietto è: " + prezzobiglietto + "€");
+
+            console.log(" ");
+            prezzobiglietto = prezzobiglietto.toFixed(2);
+            console.log("Prezzo del biglietto approssimato " + prezzobiglietto +"€");
+
             document.getElementById('prezzo').innerHTML += prezzobiglietto + "€";
         }
         else{
+            console.log("Il passeggero è maggiorenne");
 
             // todo: va applicato uno sconto del 40% per gli over 65.*/
-            console.log("Il passeggero è maggiorenne");
             if (età > 65){
                 console.log("Ma se è over 65 ha il prezzo scontato del 40%");
                 sconto = (40 / 100) * prezzobiglietto; 
                 prezzobiglietto = prezzobiglietto - sconto;
                 console.log("Il prezzo del biglietto è: " + prezzobiglietto +"€");
+
+                console.log(" ");
+                prezzobiglietto = prezzobiglietto.toFixed(2);
+                console.log("Prezzo del biglietto approssimato " + prezzobiglietto +"€");
+
                 document.getElementById('prezzo').innerHTML += prezzobiglietto + "€";
             }
             else{
                 console.log("Il passeggero paga la tariffa normale di: " + prezzobiglietto);
+
+                console.log(" ");
+                prezzobiglietto = prezzobiglietto.toFixed(2);
+                console.log("Prezzo del biglietto approssimato " + prezzobiglietto +"€");
+
                 document.getElementById('prezzo').innerHTML += prezzobiglietto + "€";
             }
         }
