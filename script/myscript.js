@@ -11,15 +11,22 @@ va applicato uno sconto del 20% per i minorenni
 va applicato uno sconto del 40% per gli over 65.
 */
 
-let numerokm;
-let età;
+const numerokm = parseInt(prompt("Inserisci il numero di kilomentri che devi fare: "));
 
-numerokm = parseInt(prompt("Inserisci il numero di kilomentri che devi fare: "));
-if (numerokm === 3){
-    console.log("questo è un numero");
-    console.log("Il passeggero deve fare: "+ numerokm + "km");
-
+if (isNaN(numerokm)){
+    console.log("Questo non è un numero");
+    document.getElementById('kilometri').innerHTML = "Mi dispiace non ha inserito un numero, ricaricare la pagina";
 }
 else{
-    console.log("Deve inserire un numero, ricarichi la pagina");
+    console.log("Il passeggero deve fare: "+ numerokm + "km");
+    document.getElementById('kilometri').innerHTML += numerokm + "km";
+
+    const età = parseInt(prompt("Inserisci la tua età: "));
+
+    if (isNaN(età)){
+        console.log("Questo non è un numero");
+    }
+    else{    
+    console.log("Età del passeggero: "+ età);
+    }
 }
